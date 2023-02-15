@@ -1,0 +1,24 @@
+CREATE TABLE customers (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  pickup_location VARCHAR(255) NOT NULL,
+  dropoff_location VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE planner (
+  id INT NOT NULL AUTO_INCREMENT,
+  date DATE NOT NULL,
+  slot1 INT DEFAULT NULL,
+  slot2 INT DEFAULT NULL,
+  slot3 INT DEFAULT NULL,
+  slot4 INT DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE delivery_options (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  option_name VARCHAR(50) NOT NULL
+);
+
+ALTER TABLE customers ADD COLUMN delivery_option_id INT;
