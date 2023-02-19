@@ -1,16 +1,28 @@
 import express from 'express'
-import {  getAllCustomersDelivery, getPlanner, setPlanner, }  from '../controller/logistics.js'
+import { Server } from 'socket.io'
+import http from 'http'
+
+import {  getCustomers, createCustomers, deleteCustomers, createPlanners, getPlanners, deletePlanners }  from '../controller/logistics.js'
 
 const router = express.Router()
 
 
 // define an endpoint to fetch the list of customers
-  router.get('/api/customers', getAllCustomersDelivery);
+  router.get('/customers', getCustomers);
   
-  // define an endpoint to fetch the planner data for the next 7 days
-  router.get('/api/planner', getPlanner);
+  // define an endpoint to craete the customers list queue
+  router.post('/customers', createCustomers);
   
-  // define an endpoint to update the planner data
-  router.post('/api/planner', setPlanner);
+  // define an endpoint to delete the customers
+  router.delete('/customers/:id', deleteCustomers);
+
+  // define an endpoint to create the Planner
+  router.post('/planner', createPlanners);
+
+  // define an endpoint to get a planned logistics slot
+  router.get('/planner/:id', getPlanners);
+
+  //define an endpoint to delete a planned logistics slot
+  router.delete('/planner/:customer_id/', deletePlanners);
 
 export default router
