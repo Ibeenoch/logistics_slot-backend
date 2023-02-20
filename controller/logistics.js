@@ -5,7 +5,7 @@ import { io } from '../index.js'
 let pool = mysql.createConnection({
   host: 'sql7.freemysqlhosting.net',
   user: 'sql7599716',
-  password: 'Please wait',
+  password: '95f6glXBk9',
   database: 'sql7599716',
   multipleStatements: true
 });
