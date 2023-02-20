@@ -3,10 +3,10 @@ import { io } from '../index.js'
 
 // Set up a MySQL connection 
 let pool = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '123456',
-  database: 'transportation',
+  host: 'sql7.freemysqlhosting.net',
+  user: 'sql7599716',
+  password: 'Please wait',
+  database: 'sql7599716',
   multipleStatements: true
 });
 
