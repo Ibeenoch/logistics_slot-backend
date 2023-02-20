@@ -8,7 +8,6 @@ let pool = mysql.createConnection({
   password: '95f6glXBk9',
   database: 'sql7599716',
   multipleStatements: true,
-  port: 3306
 });
 
 pool.connect((err) => {
