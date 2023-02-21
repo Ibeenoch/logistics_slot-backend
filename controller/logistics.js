@@ -66,7 +66,7 @@ export const createPlanners = (req, res) => {
 export const getPlanners =  (req, res) => {
   let id = req.params.id
    console.log('Customersid = ', id)
-  pool.query('select * from planner where id=?;', [ id ], (err, results) => {
+  pool.query('select * from planner where customer_id=?;', [ id ], (err, results) => {
     if (err) throw err;
     res.send(results);
     console.log('get planner results :', results)
@@ -75,7 +75,7 @@ export const getPlanners =  (req, res) => {
 
 export const deletePlanners = (req, res) => {
   console.log({customer_idParams: req.params.customer_id})
-pool.query('DELETE FROM planner WHERE customer_id=? AND date < CURDATE()', [req.params.customer_id], (err, results) => {
+pool.query('DELETE FROM planner WHERE customer_id=?', [req.params.customer_id], (err, results) => {
 if (err) throw err;
 // emit a "delete" event to all connected clients
 io.emit('delete', req.params.customer_id)
